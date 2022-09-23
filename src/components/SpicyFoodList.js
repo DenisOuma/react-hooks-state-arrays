@@ -23,16 +23,15 @@ function SpicyFoodList() {
 		if (newFilter === "All") return true;
 		return food.cuisine === newFilter;
 	});
+	const handleFilterChange = (event) => {
+		const newFilter = event.target.value;
+		SetNewFilter(newFilter);
+	};
 	const foodList = foodsToDisplay.map((food) => (
 		<li key={food.id} onClick={() => handleClick(food.id)}>
 			{food.name} | Heat: {food.heatLevel} | Cuisine: {food.cuisine}
 		</li>
 	));
-
-	const handleFilterChange = (event) => {
-		const newFilter = event.target.value;
-		SetNewFilter(newFilter);
-	};
 
 	return (
 		<div>
